@@ -6,7 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Astereoid Atari Js</title>
 </head>
-<body>
-    
+<body style="margin:0;padding:0;">
+    <canvas id="gameCanvas" width="700"  height="500" ></canvas>
+    <script>
+
+        const FPS=10;//frame per sencunds
+        const SHIP_SIZE=30; // ship size in pixels
+
+        // @type (HTMLCanvasElemelemt)*/
+        let canv=document.getElementById("gameCanvas");
+        let ctx=canv.getContext("2d");
+
+        let ship={
+            x:canv.width/2,
+            y:canv.height/2,
+            r:SHIP_SIZE /2,
+            a:90/180 * Math.PI /// convert to radian
+        }
+
+        //set up the game loop
+        setInterval(update, 1000 / FPS);
+
+        function update(){
+            // drwa space
+                ctx.fillstyle="black";
+                ctx.fillRect(0,0, canv.width,canv.height);
+           
+            // draw triangular ship
+            ctx.strokeStyle="yellow", 
+            ctx.lineWidth=SHIP_SIZE/20;
+            ctx.beginPath();
+            ctx.moveTo(// nose of the ship
+            ship.x + ship.r * Math.cos(ship.a),
+            ship.y -  ship.r * Math.sin(ship.a),
+            );
+            ctx.lineTo(// rear left
+                ship.x - ship.r * (Math.cos(ship.a)+ Math.sin(ship.a)),
+                ship.y + ship.r * (Math.sin(ship.a) - Math.cos(ship.a))
+            );
+            ctx.stroke();
+
+            //rolate ship
+
+
+            //move the ship
+        }
+    </script>
 </body>
 </html>

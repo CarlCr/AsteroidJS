@@ -327,9 +327,37 @@
                 ctx.arc(ship.lasers[i].x, ship.lasers[i].y, SHIP_SIZE / 15, 0, Math.PI * 2, false); 
                 ctx.fill();
             }
- 
+            
+            // detect  laser hits on asteroids 
+            let ax, ay, ar, lx, ly;
+            for(let i = roids.length - 1; i >= 0; i--){
 
-            // check for asteroids collisions 
+                // grab the asteroids properties
+                ax=roids[i].x;
+                ay=roids[i].y;
+                ar=roids[i].r;
+
+                // loop over the lasers 
+                for(let j = ship.lasers.length - 1; j >= 0; j--){
+
+                    // grab laser properties
+                    lx= ship.lasers[j].x;
+                    ly= ship.lasers[j].y;
+
+                    // detect hits
+                    if(distBetweenPoints(ax, ay, lx, ly) < ar){
+
+                        //remove the laser
+                        ship.lasers.splice(j, 1);
+
+                        //remove the asteroids
+                        roids.splice(i, 1);
+                        break;
+                    }
+                }
+            }
+
+            // check for asteroids collisions  (when not exploring)
             if(!exploding){
 
                 // only check when blinking

@@ -152,7 +152,7 @@
                     x: ship.x + 4 / 3 * ship.r * Math.cos(ship.a),
                     y: ship.y - 4 / 3 * ship.r * Math.sin(ship.a),
                     xv: LASER_SPD * Math.cos(ship.a) / FPS,
-                    yv: LASER_SPD * Math.sin(ship.a) / FPS
+                    yv: -LASER_SPD * Math.sin(ship.a) / FPS
                 });
             }
             // prevet for the shooting
@@ -363,6 +363,12 @@
                 ship.y= 0 - ship.r;
             }
             
+            //move the lasers
+            for(let i = 0; i < ship.lasers.length; i++){
+                ship.lasers[i].x += ship.lasers[i].xv;
+                ship.lasers[i].y += ship.lasers[i].yv;
+            }
+
              // move the asteroids 
              for(let i = 0; i < roids.length; i++ ){
 

@@ -147,7 +147,7 @@
                     ship.thrust.y -= (SHIP_THRUST * Math.sin(ship.a) / FPS);
                     
                     // draw  the thruster
-                    if(!exploding){
+                    if(!exploding && blinkOn){
                         ctx.fillStyle="red";
                         ctx.strokeStyle="white";
                         ctx.lineWidth= SHIP_SIZE / 10;
@@ -195,12 +195,20 @@
                     ctx.closePath();
                     ctx.stroke();
                 }
-            }
-
+                
                 // hendle blinking
                 if(ship.blinkNum > 0){
-                    
+                    // reduce the blink time
+                    ship.blinkTime--;
+
+                    // reduce the blink number
+                    if(ship.blinkTime == 0){
+                        ship.blinkTime = Math.ceil(SHIP_BLINK_DUR * FPS);
+                        ship.blinkNum--;
+                    }
                 }
+            }
+
             else{
                 // draw explosion 
                 ctx.fillStyle="darkred";
@@ -276,9 +284,11 @@
 
             // check for asteroids collisions 
             if(!exploding){
-                for(let i = 0; i < roids.length; i++ ){
-                    if(distBetweenPoints(ship.x, ship.y, roids[i].x, roids[i].y) < ship.r  + roids[i].r){
-                        exploideShip();
+                if(ship.blinkNum == 0){
+                    for(let i = 0; i < roids.length; i++ ){
+                        if(distBetweenPoints(ship.x, ship.y, roids[i].x, roids[i].y) < ship.r  + roids[i].r){
+                            exploideShip();
+                        }
                     }
                 }
 

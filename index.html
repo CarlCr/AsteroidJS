@@ -9,12 +9,12 @@
 <body style="margin:0;padding:0;">
     <canvas id="gameCanvas" width="700"  height="500" ></canvas>
     <script>
-        const FPS= 10;//frame per sencunds
+        const FPS= 30;//frame per sencunds
         const FRICTION= 0.7;// friction coofficient os space (0 = no frictioon, 1= lots of friction)
         const ROIDS_NUM=3; // starting number of asteroids
         const ROIDS_SIZE=100; // starting SIZE of asteroids  in pixels
         const ROIDS_SPD=50; // max starting speed of asteroids pixels per secunds  
-        const ROIDS_VERT=10; // avarege number of vertices on each ast
+        const ROIDS_VERT=10; // avarege number of vertices on each asteroids
         const SHIP_SIZE= 30; // ship size in pixels
         const SHIP_THRUST= 5 ; // acelaration of the ship in pexels per secund
         const TURN_SPEED= 360; //turn speed in degrees per secund
@@ -49,12 +49,18 @@
 
         function createAsteroidBelt(){
             roids= [];
-            let x,y;
-            for(let i = 0; i < ROIDS_NUM;i++){
-                x= Math.floor(Math.random() * canvas.width);
-                y= Math.floor(Math.random() * canvas.height);
-                roids.push(newAsteroid(x,y));
+            let x, y;
+            for(let i = 0; i < ROIDS_NUM; i++){
+                do {
+                    x= Math.floor(Math.random() * canv.width);
+                    y= Math.floor(Math.random() * canv.height);
+                } while(distBetweenPoints(ship.x, ship.y, x, y) < ROIDS_SIZE * 2 + ship.r);
+                roids.push(newAsteroid(x, y));
             }
+        }
+
+        function distBetweenPoints(x1, y1, x2, y2){
+            return Math.sqrt(Math.pow(x2 -x1, 2) + Math.pow(y2 - y1, 2));
         }
 
         function keyDown(/** @type (keyboardEvent) */ev) {
@@ -90,14 +96,14 @@
         }
 
         function newAsteroid(x,y){
-            let roid ={
+            let roid = {
                 x: x,
                 y: y,
-                xy: Math.random() * ROIDS_SPD / FPS * (Math.random() < 0.5 ? 1 : -1),
-                yx: Math.random() * ROIDS_SPD / FPS * (Math.random() < 0.5 ? 1 : -1),
+                xv: Math.random() * ROIDS_SPD / FPS * (Math.random() < 0.5 ? 1 : -1),
+                yv: Math.random() * ROIDS_SPD / FPS * (Math.random() < 0.5 ? 1 : -1),
                 r:  ROIDS_SIZE / 2,
                 a: Math.random() * Math.PI * 2 ,// in radians 
-                vert:Math.floor(Math.random() * (ROIDS_VERT + 1) + ROIDS_VERT / 2)
+                vert: Math.floor(Math.random() * (ROIDS_VERT + 1) + ROIDS_VERT / 2)
             };
             return roid;
         }
@@ -160,13 +166,31 @@
             //draw the asteroids
             ctx.strokeStyle="slategrey";
             ctx.lineWidth = SHIP_SIZE / 20;
+            let x, y, r, a, vet;
             for(let i = 0; i < roids.length; i++){
 
+                //get the asterods propieties
+                x=roids[i].x;
+                y=roids[i].y;
+                r=roids[i].r;
+                a=roids[i].a;
+                vert=roids[i].vert;
+
                 // draw a path
-
-
+                ctx.beginPath();
+                ctx.moveTo(
+                    x + r * Math.cos(a),
+                    y + r * Math.sin(a)
+                );
                 // draw the polygon
-
+                    for(let j = 0 ; j < vert; j++ ){
+                        ctx.lineTo(
+                            x + r * Math.cos(a + j * Math.PI * 2 / vert),
+                            y + r * Math.sin(a + j * Math.PI * 2 / vert)
+                        );
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
                 // move the asteroids 
 
                 // hendle edge of the screen
@@ -195,7 +219,7 @@
             }
 
             // centre dot 
-            ctx.fillStyle="red";
+            //ctx.fillStyle="red";
             //ctx.fillRect(ship.x - 1, ship.y - 1, 2, 2);
         }
     </script>

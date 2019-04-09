@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+}

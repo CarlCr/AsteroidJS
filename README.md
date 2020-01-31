@@ -21,9 +21,9 @@
 <p align="center">
   <a href="#rocket-techs">Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-how-to-play">How to play</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-how-to-play">How to Play</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-game">Game</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-how-to-contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-how-to-contribute">How to Contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-collaborator">Collaborator</a>
   <a href="#-author">Author</a>
@@ -42,9 +42,21 @@ This project was developed with the following technologies:
 
 AsteroidJS is a game made with javascript and html5 that consists of a spaceship to destroy the asteroids that appear in space.
 
-## 🤔 How to play
+## 🤔 How to Play
 
 use the arrow keys to change the direction of the ship and press the space key on the keyboard to fire shots at the asteroids.
+
+#### - Move Left
+- To move to the left side press the left arrow key on your keyboard.
+
+#### - Move Right
+- To move to the right side press the right arrow key on your keyboard.
+
+#### - To Go Forward
+- To move forward press the top key on your keyboard.
+
+#### - To Fire
+- To fire press the space key on your keyboard.
 
 ## Game
 
@@ -53,7 +65,7 @@ use the arrow keys to change the direction of the ship and press the space key o
 
 ![Game](download.png)
 
-## 🤔 How to contribute
+## 🤔 How to Contribute
 
 - Fork this repository;
 - Create a branch with your feature: `git checkout -b my-feature`;

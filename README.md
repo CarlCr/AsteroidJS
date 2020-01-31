@@ -33,8 +33,10 @@
 
 This project was developed with the following technologies:
 
+
+- [Javascript](https://www.w3schools.com/js/)
 - [HTML](https://www.w3schools.com/html/)
-- [Javascript](https://www.javascript.com)
+- [CSS](https://https://www.w3schools.com/css/)
 
 ## 💻 Project
 
@@ -66,8 +68,8 @@ This project is under the MIT license. See the archive [LICENSE](LICENSE.md) for
 
 ## Collaborator
 
-[Acidiney Dias](https://github.com/acidiney).
+[Acidiney Dias](https://github.com/acidiney)
 
 ## Author
 
-[Carlos Garcia](https://github.com/CarlCr).
+[Carlos Garcia](https://github.com/CarlCr)

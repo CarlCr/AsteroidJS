@@ -21,9 +21,11 @@
 <p align="center">
   <a href="#rocket-techs">Techs</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-how-to-play">How to play</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-game">Game</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-how-to-contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-collaborator">Collaborator</a>
   <a href="#-author">Author</a>
 </p>
 
@@ -36,7 +38,11 @@ This project was developed with the following technologies:
 
 ## 💻 Project
 
-AsteroidJS is a game made with javascript and html5 that consists of a spaceship to destroy the asteroids that appear in space
+AsteroidJS is a game made with javascript and html5 that consists of a spaceship to destroy the asteroids that appear in space.
+
+## 🤔 How to play
+
+use the arrow keys to change the direction of the ship and press the space key on the keyboard to fire shots at the asteroids.
 
 ## Game
 
@@ -57,6 +63,10 @@ After the merge of your pull request is done, you can delete your branch.
 ## :memo: License
 
 This project is under the MIT license. See the archive [LICENSE](LICENSE.md) for more details.
+
+## Collaborator
+
+[Acidiney Dias](https://github.com/acidiney).
 
 ## Author
 
